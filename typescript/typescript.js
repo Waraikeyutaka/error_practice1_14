@@ -1,14 +1,12 @@
-function checkValue(value) {
-    if (value < 0) { // マイナスの値の場合エラーをthrowする（投げる）。
-        throw new Error("Value cannot be negative"); // エラーメッセージ設定
+function checkForError(value) {
+    if (value === -1) {
+        throw new Error('値が -1 なのでエラーです');
     }
 }
-// try-catch構文：上記とセットで使う
+//try catch 文の中でこの関数の引数に -1を設定します
 try {
-    // 例外を起こすコード
-    checkValue(-1);
+    checkForError(-1);
 }
-catch (error) { // throwされたエラーを検知した場合の処理
-    // 例外が発生した場合の処理
-    console.error(error.message);
+catch (error) {
+    console.error("\u30A8\u30E9\u30FC\u304C\u767A\u751F\u3057\u307E\u3057\u305F: ".concat(error.message));
 }
